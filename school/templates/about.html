@@ -6,39 +6,56 @@
 {% block content %}
 <style>
     /* About Page Specific Styles */
+    .about-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+    
     .about-hero {
-        background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.85)), 
-                    url("{% static 'images/school-gate.jpg' %}");
-        background-size: cover;
-        background-position: center;
-        color: white;
         text-align: center;
-        padding: 5rem 1rem;
-        margin-bottom: 3rem;
+        padding: 4rem 1rem;
+        margin-bottom: 2rem;
+        position: relative;
+    }
+    
+    .about-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 51, 102, 0.03);
+        z-index: -1;
     }
     
     .about-hero h1 {
         font-size: 2.8rem;
         margin-bottom: 1rem;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        color: #003366;
+        font-weight: 700;
     }
     
-    .about-container {
-        max-width: 1200px;
+    .about-hero p {
+        font-size: 1.2rem;
+        color: #4a5568;
+        max-width: 800px;
         margin: 0 auto;
-        padding: 0 1rem;
+        line-height: 1.6;
     }
     
     .about-section {
-        margin-bottom: 4rem;
+        margin-bottom: 5rem;
     }
     
     .section-header {
         color: #003366;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
         position: relative;
         padding-bottom: 0.8rem;
         font-size: 2rem;
+        font-weight: 600;
     }
     
     .section-header:after {
@@ -51,10 +68,19 @@
         background-color: #e8b429;
     }
     
+    .section-header.center {
+        text-align: center;
+    }
+    
+    .section-header.center:after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
     .history-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 3rem;
+        gap: 4rem;
         align-items: center;
         margin: 3rem 0;
     }
@@ -68,10 +94,17 @@
     
     .value-card {
         background: white;
-        padding: 2rem;
+        padding: 2.5rem 2rem;
         border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        border-left: 4px solid #e8b429;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+        border-top: 4px solid #e8b429;
+    }
+    
+    .value-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     }
     
     .value-card h3 {
@@ -79,24 +112,35 @@
         margin-top: 0;
         display: flex;
         align-items: center;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
     }
     
     .value-icon {
         margin-right: 1rem;
         color: #e8b429;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
     
     .team-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
         margin: 3rem 0;
     }
     
     .team-member {
         text-align: center;
         margin-bottom: 2rem;
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+    }
+    
+    .team-member:hover {
+        transform: translateY(-5px);
     }
     
     .team-photo {
@@ -105,36 +149,108 @@
         border-radius: 50%;
         object-fit: cover;
         border: 4px solid #e8b429;
-        margin: 0 auto 1rem;
+        margin: 0 auto 1.5rem;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
     
+    .team-member h3 {
+        color: #003366;
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+    }
+    
+    .team-member p {
+        color: #4a5568;
+        margin-bottom: 0.3rem;
+    }
+    
     .achievements {
-        background-color: #f8f9fa;
-        padding: 3rem;
-        border-radius: 8px;
-        margin: 3rem 0;
+        background: linear-gradient(135deg, #003366 0%, #002244 100%);
+        padding: 4rem 3rem;
+        border-radius: 12px;
+        margin: 4rem 0;
+        color: white;
     }
     
     .achievement-item {
         display: flex;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
+        align-items: flex-start;
     }
     
     .achievement-icon {
         color: #e8b429;
-        font-size: 1.5rem;
-        margin-right: 1rem;
-        margin-top: 0.3rem;
+        font-size: 2rem;
+        margin-right: 1.5rem;
+        min-width: 40px;
     }
     
-    @media (max-width: 768px) {
+    .achievement-content h3 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        color: white;
+        font-size: 1.3rem;
+    }
+    
+    .achievement-content p {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 0;
+        line-height: 1.6;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        background-color: #003366;
+        color: white;
+        padding: 0.8rem 1.8rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 2px solid #003366;
+    }
+    
+    .cta-button:hover {
+        background-color: transparent;
+        color: #003366;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .cta-section {
+        text-align: center;
+        padding: 3rem;
+        background-color: #f8f9fa;
+        border-radius: 12px;
+        margin: 4rem 0;
+    }
+    
+    @media (max-width: 968px) {
         .history-grid {
             grid-template-columns: 1fr;
+            gap: 2rem;
         }
         
         .about-hero h1 {
             font-size: 2.2rem;
+        }
+        
+        .section-header {
+            font-size: 1.8rem;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .about-hero {
+            padding: 3rem 1rem;
+        }
+        
+        .achievements {
+            padding: 2.5rem 1.5rem;
+        }
+        
+        .value-card, .team-member {
+            padding: 1.8rem 1.5rem;
         }
     }
 </style>
@@ -155,19 +271,22 @@
             <div>
                 <p>Founded in 2014, Oasis Schools Arua began as a small educational initiative with just three classrooms and a vision to transform education in the West Nile region. What started as a humble beginning has now flourished into one of Arua's most respected educational institutions.</p>
                 
-                <p>Our founder, [Founder's Name], envisioned a school that would combine academic rigor with strong moral values, creating well-rounded individuals prepared to meet the challenges of the modern world.</p>
+                <p>Our founder envisioned a school that would combine academic rigor with strong moral values, creating well-rounded individuals prepared to meet the challenges of the modern world.</p>
                 
                 <p>Over the years, we've expanded our facilities, grown our academic programs, and most importantly, maintained our commitment to excellence in both education and character development.</p>
             </div>
             <div>
-                <img src="{% static 'images/school-history.jpg' %}" alt="Oasis Schools Early Days" style="width:100%; border-radius:8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+     alt="Oasis Schools Campus" 
+     style="width:100%; border-radius:12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+
             </div>
         </div>
     </section>
 
     <!-- Our Values -->
     <section class="about-section">
-        <h2 class="section-header">Our Core Values</h2>
+        <h2 class="section-header center">Our Core Values</h2>
         <div class="values-grid">
             <div class="value-card">
                 <h3><i class="fas fa-graduation-cap value-icon"></i> Academic Excellence</h3>
@@ -203,46 +322,46 @@
 
     <!-- Our Team -->
     <section class="about-section">
-        <h2 class="section-header">Our Leadership Team</h2>
+        <h2 class="section-header center">Our Leadership Team</h2>
         <div class="team-grid">
             <div class="team-member">
                 <img src="{% static 'images/Likicho.png' %}" alt="Headteacher" class="team-photo">
                 <h3>Likicho Hajira</h3>
-                <p>Headteacher-Muni campus</p>
+                <p>Headteacher - Muni Campus</p>
                 <p>B.Ed, M.Ed, 10+ years experience</p>
             </div>
             
             <div class="team-member">
-                <img src="{% static 'images/deputy.jpg' %}" alt="Deputy Headteacher" class="team-photo">
-                <h3>[Deputy's Name]</h3>
+                <img src="{% static 'images/Likicho.png' %}" alt="Deputy Headteacher" class="team-photo">
+                <h3>Deputy Headteacher</h3>
                 <p>Deputy Headteacher</p>
                 <p>B.Sc Education, 10+ years experience</p>
             </div>
             
             <div class="team-member">
-                <img src="{% static 'images/administrator.jpg' %}" alt="School Administrator" class="team-photo">
-                <h3>[Administrator's Name]</h3>
+                <img src="{% static 'images/Likicho.png' %}" alt="School Administrator" class="team-photo">
+                <h3>School Administrator</h3>
                 <p>School Administrator</p>
                 <p>BBA, MBA, 8+ years experience</p>
             </div>
         </div>
         
         <p style="text-align: center; margin-top: 2rem;">
-            <a href="{% url 'contact' %}" class="cta-button" style="display: inline-block;">
-                Meet Our Full Team <i class="fas fa-arrow-right"></i>
+            <a href="{% url 'contact' %}" class="cta-button">
+                Meet Our Full Team <i class="fas fa-arrow-right ml-2"></i>
             </a>
         </p>
     </section>
 
     <!-- Achievements -->
     <section class="about-section">
-        <h2 class="section-header">Our Achievements</h2>
+        <h2 class="section-header center" style="color: white;">Our Achievements</h2>
         <div class="achievements">
             <div class="achievement-item">
                 <div class="achievement-icon">
                     <i class="fas fa-trophy"></i>
                 </div>
-                <div>
+                <div class="achievement-content">
                     <h3>Academic Excellence</h3>
                     <p>Consistently ranked among the top performing schools in Arua District in national examinations.</p>
                 </div>
@@ -252,7 +371,7 @@
                 <div class="achievement-icon">
                     <i class="fas fa-medal"></i>
                 </div>
-                <div>
+                <div class="achievement-content">
                     <h3>Sports Champions</h3>
                     <p>Multiple regional championships in football, athletics, and netball over the past 5 years.</p>
                 </div>
@@ -262,7 +381,7 @@
                 <div class="achievement-icon">
                     <i class="fas fa-award"></i>
                 </div>
-                <div>
+                <div class="achievement-content">
                     <h3>Innovation Awards</h3>
                     <p>Recognized by the Ministry of Education for our innovative ICT integration in teaching.</p>
                 </div>
@@ -272,7 +391,7 @@
                 <div class="achievement-icon">
                     <i class="fas fa-users"></i>
                 </div>
-                <div>
+                <div class="achievement-content">
                     <h3>Community Impact</h3>
                     <p>Awarded for our outstanding community service programs benefiting local villages.</p>
                 </div>
@@ -281,17 +400,17 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="about-section" style="text-align: center;">
-        <h2 class="section-header">Become Part of Our Story</h2>
-        <p style="max-width: 800px; margin: 0 auto 2rem;">
+    <section class="cta-section">
+        <h2 class="section-header center">Become Part of Our Story</h2>
+        <p style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
             At Oasis Schools Arua, we're more than just a school - we're a community dedicated to nurturing the next generation of leaders, thinkers, and change-makers. Join us on this journey of educational excellence.
         </p>
-        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
             <a href="{% url 'contact' %}" class="cta-button">
-                Contact Us <i class="fas fa-envelope"></i>
+                Contact Us <i class="fas fa-envelope ml-2"></i>
             </a>
-            <a href="{% url 'classes' %}" class="cta-button" style="background-color: #e8b429; color: #003366;">
-                Our Programs <i class="fas fa-book-open"></i>
+            <a href="{% url 'classes' %}" class="cta-button" style="background-color: #e8b429; color: #003366; border-color: #e8b429;">
+                Our Programs <i class="fas fa-book-open ml-2"></i>
             </a>
         </div>
     </section>
