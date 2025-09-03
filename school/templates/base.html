@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
+   <style>
         :root {
             --primary: #2c5e8b;
             --secondary: #e8b429;
@@ -36,7 +36,270 @@
             padding: 0;
         }
         
-        
+       .hero-section {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.hero-slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 1;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Background Images with enhanced brightness */
+.slide-1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+}
+
+.slide-2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+}
+
+.slide-3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1560785496-3c9d27877182?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+}
+
+.slide-4 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+}
+
+.slide-5 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+}
+
+.slide-6 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+}
+
+.slide-7 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+}
+
+.slide-8 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+}
+
+.slide-9 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1524178232400-38d816f003ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+}
+
+.slide-10 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+}
+
+/* Lighter overlay for better image visibility */
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+    z-index: 3;
+}
+
+.slide-content {
+    position: relative;
+    z-index: 4;
+    color: white;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+    animation: fadeInUp 1s ease-out;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.slide-content h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide-content p {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.btn-hero {
+    display: inline-block;
+    background-color: var(--secondary);
+    color: var(--primary);
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-hero:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Slide indicators */
+.slide-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%); /* Center the indicators */
+    display: flex;
+    gap: 10px;
+    z-index: 5;
+}
+
+.slide-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slide-indicator.active {
+    background-color: var(--secondary);
+    transform: scale(1.2);
+}
+
+/* Navigation arrows */
+.slide-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 5;
+}
+
+.slide-nav-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slide-nav-btn:hover {
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments for hero section */
+@media (max-width: 992px) {
+    .slide-content h2 {
+        font-size: 2.8rem;
+    }
+    
+    .slide-content p {
+        font-size: 1.2rem;
+    }
+    
+    .hero-section {
+        height: 70vh;
+    }
+    
+    .slide-nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide-content h2 {
+        font-size: 2.2rem;
+    }
+    
+    .slide-content p {
+        font-size: 1.1rem;
+    }
+    
+    .btn-hero {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+    
+    .hero-section {
+        height: 60vh;
+        min-height: 400px;
+    }
+    
+    .slide-nav {
+        display: none; /* Hide arrows on mobile */
+    }
+}
+
+@media (max-width: 576px) {
+    .slide-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .slide-content p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-section {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .slide-indicators {
+        bottom: 20px;
+    }
+}
+
+        /* Rest of your existing CSS styles */
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
@@ -647,9 +910,113 @@
                 font-size: 1rem;
             }
         }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        /* Loading animation */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(44, 94, 139, 0.2);
+            border-radius: 50%;
+            border-top: 5px solid var(--primary);
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .toast.success {
+            background-color: #28a745;
+        }
+        
+        .toast.error {
+            background-color: #dc3545;
+        }
     </style>
 </head>
 <body>
+    <!-- Loading animation -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader"></div>
+    </div>
+    
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
+    
+    <!-- Back to top button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
    <!-- Professional Header with Social Media -->
 <header>
     <div class="top-bar">
@@ -715,6 +1082,79 @@
     </div>
 </header>
 
+<!-- Hero Section with Slider -->
+<div class="hero-section">
+    <div class="hero-slides">
+        <!-- Slide 1 -->
+        <div class="hero-slide slide-1 active">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h2>Excellence in Education</h2>
+                <p>Nurturing young minds for a brighter future</p>
+                <a href="{% url 'admissions' %}" class="btn-hero">Apply Now</a>
+            </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="hero-slide slide-2">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h2>Quality Learning Environment</h2>
+                <p>State-of-the-art facilities for holistic development</p>
+                <a href="{% url 'campus' %}" class="btn-hero">Explore Campuses</a>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="hero-slide slide-3">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h2>Experienced Educators</h2>
+                <p>Dedicated teachers committed to student success</p>
+                <a href="{% url 'about' %}" class="btn-hero">Meet Our Team</a>
+            </div>
+        </div>
+        
+        <!-- Slide 4 -->
+        <div class="hero-slide slide-4">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h2>Holistic Development</h2>
+                <p>Balancing academics with extracurricular activities</p>
+                <a href="{% url 'classes' %}" class="btn-hero">Our Programs</a>
+            </div>
+        </div>
+        
+        <!-- Slide 5 -->
+        <div class="hero-slide slide-5">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h2>Join Our Community</h2>
+                <p>Become part of the Oasis Schools family today</p>
+                <a href="{% url 'contact' %}" class="btn-hero">Contact Us</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Arrows -->
+    <div class="slide-nav">
+        <div class="slide-nav-btn prev-slide">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="slide-nav-btn next-slide">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+    
+    <!-- Slide Indicators -->
+    <div class="slide-indicators">
+        <div class="slide-indicator active" data-slide="0"></div>
+        <div class="slide-indicator" data-slide="1"></div>
+        <div class="slide-indicator" data-slide="2"></div>
+        <div class="slide-indicator" data-slide="3"></div>
+        <div class="slide-indicator" data-slide="4"></div>
+    </div>
+</div>
     
     <main>
         {% block content %}{% endblock %}
@@ -773,7 +1213,7 @@
                 <div class="col-lg-3 col-md-4">
                     <h5 class="footer-title">School Newsletter</h5>
                     <p>Subscribe to receive updates on school news, events, and important announcements.</p>
-                    <form method="post" action="{% url 'subscribe' %}" class="newsletter-form">
+                    <form method="post" action="{% url 'subscribe' %}" class="newsletter-form" id="newsletterForm">
                         {% csrf_token %}
                         <div class="input-group">
                             <input type="email" name="email" class="form-control" placeholder="Your Email" required>
@@ -808,56 +1248,205 @@
                     <a href="{% url 'privacy' %}">Privacy Policy</a> | 
                     <a href="{% url 'terms' %}">Terms of Service</a> | 
                    <!-- <a href="{% url 'sitemap' %}">Sitemap</a> | -->
-                    <a href="https://sangaben.onrender.com/" target="_blank">Developed by sanga</a></p>
+                   <!-- <a href="https://sangaben.onrender.com/" target="_blank">Developed by sanga</a></p>-->
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu functionality
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            document.getElementById('mainNav').classList.toggle('show');
-            this.innerHTML = this.innerHTML.includes('times') ? 
-                '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
-        });
-        
-        // Dropdown functionality for mobile
-        const dropdowns = document.querySelectorAll('.dropdown > .dropbtn');
-        dropdowns.forEach(dropdown => {
-            dropdown.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    const parent = this.parentElement;
-                    parent.classList.toggle('active');
-                    
-                    // Close other open dropdowns
-                    document.querySelectorAll('.dropdown').forEach(item => {
-                        if (item !== parent && item.classList.contains('active')) {
-                            item.classList.remove('active');
-                        }
-                    });
-                }
-            });
-        });
-        
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.matches('.dropbtn') && !e.target.closest('.dropdown')) {
-                document.querySelectorAll('.dropdown').forEach(dropdown => {
-                    dropdown.classList.remove('active');
+    // Mobile menu functionality
+    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+        document.getElementById('mainNav').classList.toggle('show');
+        this.innerHTML = this.innerHTML.includes('times') ? 
+            '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+    });
+    
+    // Dropdown functionality for mobile
+    const dropdowns = document.querySelectorAll('.dropdown > .dropbtn');
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                const parent = this.parentElement;
+                parent.classList.toggle('active');
+                
+                // Close other open dropdowns
+                document.querySelectorAll('.dropdown').forEach(item => {
+                    if (item !== parent && item.classList.contains('active')) {
+                        item.classList.remove('active');
+                    }
                 });
             }
         });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.matches('.dropbtn') && !e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown').forEach(item => {
+                item.classList.remove('active');
+            });
+        }
+    });
+    
+    // Back to top button functionality
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+    
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Newsletter form submission
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Simulate form submission (replace with actual AJAX call)
+            setTimeout(function() {
+                showToast('Thank you for subscribing to our newsletter!', 'success');
+                newsletterForm.reset();
+            }, 1000);
+        });
+    }
+    
+    // Toast notification function
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.className = `toast ${type} visible`;
         
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        setTimeout(function() {
+            toast.classList.remove('visible');
+        }, 3000);
+    }
+    
+    // Hide loader when page is fully loaded
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.getElementById('loader').style.opacity = '0';
+            setTimeout(function() {
+                document.getElementById('loader').style.display = 'none';
+            }, 500);
+        }, 1000); // Simulate loading time
+    });
+    
+    // Hero section text animation
+    function animateHeroText() {
+        const heroContent = document.querySelector('.slide-content');
+        if (heroContent) {
+            heroContent.style.animation = 'none';
+            setTimeout(function() {
+                heroContent.style.animation = 'fadeInUp 1s ease-out';
+            }, 10);
+        }
+    }
+    
+    // Re-animate hero text when it comes into view
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                animateHeroText();
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+        observer.observe(heroSection);
+    }
+
+    // Hero Slider Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.hero-slide');
+        const indicators = document.querySelectorAll('.slide-indicator');
+        const prevBtn = document.querySelector('.prev-slide');
+        const nextBtn = document.querySelector('.next-slide');
+        let currentSlide = 0;
+        let slideInterval;
+
+        // Function to show a specific slide
+        function showSlide(index) {
+            // Remove active class from all slides and indicators
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            // Add active class to current slide and indicator
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+            
+            // Animate the content
+            animateHeroText();
+            
+            currentSlide = index;
+        }
+
+        // Function to go to next slide
+        function nextSlide() {
+            let nextIndex = (currentSlide + 1) % slides.length;
+            showSlide(nextIndex);
+        }
+
+        // Function to go to previous slide
+        function prevSlide() {
+            let prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prevIndex);
+        }
+
+        // Start automatic slideshow
+        function startSlideshow() {
+            slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+
+        // Stop automatic slideshow
+        function stopSlideshow() {
+            clearInterval(slideInterval);
+        }
+
+        // Event listeners for navigation
+        nextBtn.addEventListener('click', function() {
+            stopSlideshow();
+            nextSlide();
+            startSlideshow();
+        });
+
+        prevBtn.addEventListener('click', function() {
+            stopSlideshow();
+            prevSlide();
+            startSlideshow();
+        });
+
+        // Event listeners for indicators
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', function() {
+                stopSlideshow();
+                showSlide(index);
+                startSlideshow();
             });
         });
-    </script>
+
+        // Pause slideshow when hovering over the hero section
+        const heroSection = document.querySelector('.hero-section');
+        heroSection.addEventListener('mouseenter', stopSlideshow);
+        heroSection.addEventListener('mouseleave', startSlideshow);
+
+        // Start the slideshow
+        startSlideshow();
+    });
+</script>
 </body>
 </html>
